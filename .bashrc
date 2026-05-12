@@ -116,3 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH=$PATH:$HOME/platform-tools
+
+source /home/divya/vcpkg/scripts/vcpkg_completion.bash
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
