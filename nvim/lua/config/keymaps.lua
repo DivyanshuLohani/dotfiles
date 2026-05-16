@@ -27,3 +27,8 @@ keymap("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
 
 -- Close buffer
 keymap("n", "<C-w>", "<cmd>bdelete<CR>")
+
+
+-- Comment Toggle
+vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
+vim.keymap.set("v", "<C-_>", "gc", { remap = true })

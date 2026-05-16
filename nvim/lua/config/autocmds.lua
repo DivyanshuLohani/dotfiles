@@ -1,16 +1,16 @@
 local autocmd = vim.api.nvim_create_autocmd
 
--- Open Yazi when opening directory
-autocmd("VimEnter", {
-	callback = function(data)
-		local directory = vim.fn.isdirectory(data.file) == 1
-
-		if directory then
-			vim.cmd("Yazi")
-		end
-	end,
-})
-
+-- -- Open Yazi when opening directory
+-- autocmd("VimEnter", {
+-- 	callback = function(data)
+-- 		local directory = vim.fn.isdirectory(data.file) == 1
+--
+-- 		if directory then
+-- 			vim.cmd("Yazi")
+-- 		end
+-- 	end,
+-- })
+--
 -- Restore cursor position
 autocmd("BufReadPost", {
 	callback = function()
