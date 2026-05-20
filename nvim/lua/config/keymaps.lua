@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 
 -- Save
 keymap("n", "<C-s>", ":w<CR>")
-keymap("i", "<C-s>", "<C-o>:w<CR>")
+keymap("i", "<C-s>", "<Esc>:w<CR>")
 
 -- Undo
 keymap("i", "<C-z>", "<Esc>ui")
