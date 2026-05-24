@@ -14,6 +14,17 @@ return {
 			})
 
 			vim.cmd.colorscheme("cyberdream")
+			vim.api.nvim_set_hl(0, "Pmenu", {
+				bg = "#16181a",
+			})
+
+			vim.api.nvim_set_hl(0, "PmenuSel", {
+				bg = "#2c313c",
+			})
+
+			vim.api.nvim_set_hl(0, "FloatBorder", {
+				fg = "#5ea1ff",
+			})
 		end,
 	},
 }
