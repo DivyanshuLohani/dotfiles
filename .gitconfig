@@ -1,3 +1,5 @@
 [user]
 	email = divyanshu@divyanshulohani.xyz
 	name = Divyanshu Lohani
+[init]
+	defaultBranch = main
