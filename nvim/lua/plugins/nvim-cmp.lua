@@ -7,12 +7,18 @@ return {
 		"hrsh7th/cmp-path",
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
+		"onsails/lspkind.nvim",
+		"lukas-reineke/headlines.nvim",
+		"MeanderingProgrammer/render-markdown.nvim",
 		"rafamadriz/friendly-snippets",
 	},
 
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+		local lspkind = require('lspkind')
+
+		require("render-markdown").setup()
 
 		require("luasnip.loaders.from_vscode").lazy_load()
 		cmp.setup({
@@ -34,55 +40,12 @@ return {
 					border = "rounded",
 				}),
 			},
-
 			formatting = {
-				fields = {
-					"kind",
-					"abbr",
-					"menu",
-				},
-
-				format = function(entry, item)
-					local icons = {
-						Text = "󰉿",
-						Method = "󰆧",
-						Function = "󰊕",
-						Constructor = "",
-						Field = "",
-						Variable = "",
-						Class = "",
-						Interface = "",
-						Module = "",
-						Property = "",
-						Unit = "",
-						Value = "",
-						Enum = "",
-						Keyword = "",
-						Snippet = "",
-						Color = "",
-						File = "",
-						Reference = "",
-						Folder = "",
-						EnumMember = "",
-						Constant = "",
-						Struct = "",
-						Event = "",
-						Operator = "",
-						TypeParameter = "",
-					}
-
-					item.kind =
-					    (string.format("%s %s", icons[item.kind], item.kind))
-
-					item.menu = ({
-						nvim_lsp = "[LSP]",
-						buffer = "[BUF]",
-						path = "[PATH]",
-						luasnip = "[SNIP]",
-					})[entry.source.name]
-
-					return item
-				end,
+				format = lspkind.cmp_format({
+					mode = 'symbol', -- show only symbol annotations
+					preset = 'codicons', -- use vscode-style codicons
+					maxwidth = 50,
+				})
 			},
 
 			mapping = cmp.mapping.preset.insert({
