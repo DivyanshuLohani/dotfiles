@@ -25,8 +25,6 @@ end)
 keymap("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>")
 keymap("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
 
--- Close buffer
-keymap("n", "<C-w>", "<cmd>bdelete<CR>")
 
 
 -- Comment Toggle
@@ -44,3 +42,7 @@ vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
+
+
+-- Format on will
+vim.keymap.set("n", "<S-A-f>", ":lua require('conform').format()")
