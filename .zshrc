@@ -28,7 +28,9 @@ export PATH=/home/divya/.nvm/versions/node/v24.14.1/bin:/home/divya/android/sdk/
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 eval "$(zoxide init zsh)"
 
-
+# EDITORS
+export EDITOR=nvim
+export VISUAL=nvim
 
 
 # aliases
