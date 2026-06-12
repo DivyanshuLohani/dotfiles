@@ -1,7 +1,8 @@
 # 🛠️ Dotfiles
 
-Personal configuration for my development environment (Zsh, Powerlevel10k, Git, etc.).
+Personal configuration for my development environment (Zsh, Starship, Git, etc.).
 
+Thanks to @radleylewis for the minimal zsh configuration its mostly his with some added tweaks to it.
 ---
 
 ## ⚡ Setup
@@ -20,23 +21,10 @@ chmod +x install.sh
 ## 📦 What’s Included
 
 * **Zsh** configuration (`.zshrc`)
-* **Powerlevel10k** prompt (`.p10k.zsh`)
 * **Git** configuration (`.gitconfig`)
 
 ---
 
-## 🔌 Installed Automatically
-
-The install script will set up:
-
-* [Oh My Zsh](https://ohmyz.sh/)
-* [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-* Zsh plugins:
-
-  * `zsh-autosuggestions`
-  * `zsh-syntax-highlighting`
-
----
 
 ## 🔤 Fonts (Important)
 

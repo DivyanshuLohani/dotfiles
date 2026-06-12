@@ -28,55 +28,13 @@ sudo apt install -y \
   lazygit \
   zoxide
 
-# fd alias for Ubuntu
-if ! grep -q "alias fd=fdfind" "$HOME/.zshrc"; then
-  echo 'alias fd=fdfind' >> "$HOME/.zshrc"
-fi
-
-# zoxide init
-if ! grep -q 'zoxide init zsh' "$HOME/.zshrc"; then
-  echo 'eval "$(zoxide init zsh)"' >> "$HOME/.zshrc"
-fi
 
 
-
-# ---- $DOTFILES-----------
-# 2. Install Oh My Zsh
-# -------------------------
-echo "⚡ Installing Oh My Zsh..."
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
-
-# -------------------------
-# 3. Install plugins
-# -------------------------
-echo "🔌 Installing plugins..."
-
-ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
-
-# Autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM}/plugins/zsh-autosuggestions || true
-
-# Syntax highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting || true
-
-# -------------------------
-# 4. Install Powerlevel10k
-# -------------------------
-echo "🎨 Installing Powerlevel10k..."
-
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM}/themes/powerlevel10k || true
-
-# -------------------------
-# 5. Symlink dotfiles
-# -------------------------
 echo "🔗 Linking dotfiles..."
 
 DOTFILES="$HOME/dotfiles"
 
 ln -sf $DOTFILES/zsh/.zshrc $HOME/.zshrc
-ln -sf $DOTFILES/zsh/.p10k.zsh $HOME/.p10k.zsh
 ln -sf $DOTFILES/git/.gitconfig $HOME/.gitconfig
 
 mkdir -p $HOME/.local/share/konsole

@@ -1,48 +1,55 @@
-local keymap = vim.keymap.set
+local function keymap(mode, combo, cmd, desc)
+	vim.keymap.set(mode, combo, cmd, {
+		desc = desc,
+		silent = true,
+	})
+end
 
 -- Save
-keymap("n", "<C-s>", ":w<CR>")
-keymap("i", "<C-s>", "<Esc>:w<CR>")
+keymap("n", "<C-s>", "<cmd>w<CR>", "Save file")
+keymap("n", "<leader>W", "<cmd>noautocmd w<CR>", "Save without formatting")
+keymap("i", "<C-s>", "<Esc><cmd>w<CR>", "Save file")
 
 -- Undo
-keymap("i", "<C-z>", "<Esc>ui")
-keymap("n", "<C-z>", "u")
+keymap("i", "<C-z>", "<Esc>ui", "Undo")
+keymap("n", "<C-z>", "u", "Undo")
 
 -- Select all
-keymap("n", "<C-a>", "ggVG")
+keymap("n", "<C-a>", "ggVG", "Select all")
 
 -- Copy to clipboard
-keymap("v", "<C-c>", '"+y')
+keymap("v", "<C-c>", '"+y', "Copy to clipboard")
 
 -- Format
 keymap("n", "<leader>f", function()
 	require("conform").format({
 		lsp_fallback = true,
 	})
-end)
+end, "Format file")
+
+keymap("n", "<S-A-f>", function()
+	require("conform").format()
+end, "Format on demand")
 
 -- Buffer navigation
-keymap("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>")
-keymap("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
+keymap("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>", "Next buffer")
+keymap("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", "Previous buffer")
 
+-- Comment toggle
+keymap("n", "<C-_>", "gcc", "Toggle comment")
+keymap("v", "<C-_>", "gc", "Toggle comment")
 
+-- Move line down
+keymap("n", "<A-Down>", ":m .+1<CR>==", "Move line down")
+keymap("n", "<A-j>", ":m .+1<CR>==", "Move line down")
+keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", "Move selection down")
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", "Move selection down")
 
--- Comment Toggle
-vim.keymap.set("n", "<C-_>", "gcc", { remap = true })
-vim.keymap.set("v", "<C-_>", "gc", { remap = true })
+-- Move line up
+keymap("n", "<A-Up>", ":m .-2<CR>==", "Move line up")
+keymap("n", "<A-k>", ":m .-2<CR>==", "Move line up")
+keymap("x", "<A-Up>", ":m '<-2<CR>gv=gv", "Move selection up")
+keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
--- Normal Mode: Move single line
-vim.keymap.set('n', '<A-Down>', ':m .+1<CR>==', { silent = true })
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { silent = true })
-vim.keymap.set('n', '<A-Up>', ':m .-2<CR>==', { silent = true })
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { silent = true })
-
--- Visual Mode: Move selected block
-vim.keymap.set('v', '<A-Down>', ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set('v', '<A-Up>', ":m '<-2<CR>gv=gv", { silent = true })
-vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
-
-
--- Format on will
-vim.keymap.set("n", "<S-A-f>", ":lua require('conform').format()")
+--
+keymap("n", "<leader>fp", ":let @+ = expand('%:p')<CR>", "Copy current file path")
