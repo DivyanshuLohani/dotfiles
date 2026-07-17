@@ -37,6 +37,7 @@ return {
 				"emmet_ls",
 				"emmet_language_server",
 				"marksman",
+				"basedpyright",
 			},
 		})
 		mason_tool_installer.setup({

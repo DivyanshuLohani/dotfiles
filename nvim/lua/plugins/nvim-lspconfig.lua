@@ -17,11 +17,8 @@ return {
 				opts.desc = "Show LSP references"
 				vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
-				opts.desc = "Go to declaration"
-				vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
-
 				opts.desc = "Show LSP definitions"
-				vim.keymap.set("n", "gD", "<cmd>Telescope lsp_definitions<CR>", opts)
+				vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
 				opts.desc = "Show LSP implementations"
 				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
@@ -261,6 +258,20 @@ return {
 			},
 		})
 
+		-- basedpyright
+		vim.lsp.config("basedpyright", {
+			settings = {
+				basedpyright = {
+					analysis = {
+						typeCheckingMode = "recommended", -- or "strict"
+						autoImportCompletions = true,
+						autoSearchPaths = true,
+						useLibraryCodeForTypes = true,
+						diagnosticMode = "workspace",
+					},
+				},
+			},
+		})
 		-- Instead of using mason enable all configured LSP via `automatic_enable=true`
 		-- Prefer more control by enable manual server call below via vim.lsp.enable("")
 		-- mason config: lua/sethy/plugins/lsp/mason.lua:22
@@ -275,6 +286,7 @@ return {
 			"astro",
 			"tailwindcss",
 			"marksman",
+			"basedpyright", -- add this
 		})
 	end,
 }

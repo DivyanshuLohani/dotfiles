@@ -9,6 +9,7 @@ return {
 			options = {
 				theme = "auto",
 				globalstatus = true,
+				lualine_b = { "branch", "diff", "diagnostics" },
 			},
 		})
 	end,

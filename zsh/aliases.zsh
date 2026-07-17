@@ -63,3 +63,4 @@ alias stream='mpv av://v4l2:/dev/video4 --fullscreen --demuxer-lavf-o=input_form
 alias nv="nvim ."
 alias c="clear"
 alias e="exit"
+alias tmux="tmux -u"

@@ -39,3 +39,6 @@ export ANDROID_HOME=/home/divya/Android/Sdk/
 export PATH=/home/divya/.nvm/versions/node/v24.14.1/bin:/home/divya/android/sdk/cmdline-tools/bin:/home/divya/.local/bin:/home/divya/.bun/bin:/home/divya/flutter/bin:/home/divya/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/divya/platform-tools:/home/divya/.jiotv_go/bin:/home/divya/.jiotv_go/bin
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
+# For TMUX
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8

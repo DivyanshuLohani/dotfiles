@@ -39,3 +39,7 @@ alias c="clear"
 alias e="exit"
 alias vim="nvim"
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/divya/.local/bin:$PATH"

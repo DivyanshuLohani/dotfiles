@@ -53,3 +53,14 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", "Move selection up")
 
 --
 keymap("n", "<leader>fp", ":let @+ = expand('%:p')<CR>", "Copy current file path")
+
+-- CLose all buffers
+vim.keymap.set("n", "<leader>bo", function()
+	local current = vim.api.nvim_get_current_buf()
+
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if buf ~= current and vim.api.nvim_buf_is_loaded(buf) and not vim.bo[buf].modified then
+			vim.api.nvim_buf_delete(buf, {})
+		end
+	end
+end, { desc = "Close other unmodified buffers" })

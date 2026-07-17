@@ -99,3 +99,7 @@ export PATH=$PATH:$HOME/platform-tools
 
 source /home/divya/vcpkg/scripts/vcpkg_completion.bash
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/divya/.local/bin:$PATH"

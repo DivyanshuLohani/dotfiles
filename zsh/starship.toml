@@ -2,10 +2,8 @@
 
 add_newline = false
 
-# format = "$directory$os$git_branch$git_status$python$nodejs$rust$golang$php $character"
-# format = "$directory$os$git_branch$git_status$python$nodejs$rust$golang$php$cmd_duration $character"
 format = "$directory$git_branch$git_status$python$nodejs$rust$golang$php$character"
-right_format = "$cmd_duration$time"
+right_format = "$cmd_duration"
 # Move the directory to the second line
 
 [cmd_duration]
