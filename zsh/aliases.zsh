@@ -1,5 +1,5 @@
 # Better ls
-alias ls='eza --icons'
+alias ls='eza --icons --group-directories-first'
 
 # Detailed listing
 alias ll='eza -lh --icons --git'
@@ -14,7 +14,7 @@ alias tree='eza --tree --icons'
 compdef eza=ls
 
 # Better cat
-alias cat='batcat'
+alias cat='bat'
 
 # =========================================================
 # Core utilities

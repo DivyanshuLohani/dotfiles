@@ -9,9 +9,8 @@ echo "🚀 Setting up your environment..."
 # -------------------------
 echo "📦 Installing packages..."
 
-sudo apt update
 
-sudo apt install -y \
+sudo pacman -Sy \
   zsh \
   git \
   curl \
