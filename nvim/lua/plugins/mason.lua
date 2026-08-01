@@ -38,6 +38,7 @@ return {
 				"emmet_language_server",
 				"marksman",
 				"basedpyright",
+				"clangd",
 			},
 		})
 		mason_tool_installer.setup({
@@ -47,7 +48,7 @@ return {
 				"stylua",
 				"isort",
 				"pylint",
-				"clangd",
+				"clang-format",
 				"denols",
 			},
 		})

@@ -38,6 +38,8 @@ return {
 				liquid = { "prettier" },
 				lua = { "stylua" },
 				markdown = { "mdformat", "markdownlint-cli2", "markdown-toc" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
 				-- python = { "black" },
 			},
 			format_on_save = {

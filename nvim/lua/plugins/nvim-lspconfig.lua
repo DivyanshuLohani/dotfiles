@@ -272,6 +272,24 @@ return {
 				},
 			},
 		})
+
+		-- clangd
+		vim.lsp.config("clangd", {
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--header-insertion=iwyu",
+				"--completion-style=detailed",
+				"--function-arg-placeholders",
+				"--fallback-style=llvm",
+			},
+			init_options = {
+				usePlaceholders = true,
+				completeUnimported = true,
+				clangdFileStatus = true,
+			},
+		})
 		-- Instead of using mason enable all configured LSP via `automatic_enable=true`
 		-- Prefer more control by enable manual server call below via vim.lsp.enable("")
 		-- mason config: lua/sethy/plugins/lsp/mason.lua:22
@@ -286,7 +304,8 @@ return {
 			"astro",
 			"tailwindcss",
 			"marksman",
-			"basedpyright", -- add this
+			"basedpyright",
+			"clangd",
 		})
 	end,
 }
