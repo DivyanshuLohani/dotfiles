@@ -13,7 +13,7 @@ return {
 				borderless_pickers = false,
 			})
 
-			vim.cmd.colorscheme("cyberdream")
+			-- vim.cmd.colorscheme("cyberdream")
 			vim.api.nvim_set_hl(0, "Pmenu", {
 				bg = "#16181a",
 			})

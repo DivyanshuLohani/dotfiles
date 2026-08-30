@@ -271,6 +271,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin-nvim",
+		lazy = false,
 		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
@@ -288,15 +289,15 @@ return {
 				styles = {
 					comments = { "italic" },
 					conditionals = { "italic" },
-					loops = {},
+					loops = { "italic" },
 					functions = {},
-					keywords = { "bold" },
+					keywords = { "italic" },
 					strings = {},
 					variables = {},
 					numbers = {},
 					booleans = {},
 					properties = {},
-					types = {},
+					types = { "italic" },
 					operators = {},
 				},
 				custom_highlights = function(colors)
@@ -312,6 +313,9 @@ return {
 						-- For fully transparent
 						-- Normal = { bg = "none" },
 						NormalFloat = { bg = "none" },
+
+						["@keyword.function"] = { style = { "italic" } },
+						["@keyword.type"] = { style = { "italic" } },
 					}
 				end,
 				integrations = {
@@ -334,7 +338,7 @@ return {
 				},
 			})
 
-			-- vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
