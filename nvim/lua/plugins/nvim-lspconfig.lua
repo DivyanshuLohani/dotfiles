@@ -83,6 +83,40 @@ return {
 			vim.diagnostic.config({ virtual_text = not current })
 		end, { desc = "Toggle LSP virtual text" })
 
+		-- toggle python type checking (basedpyright / pyright)
+		vim.keymap.set("n", "<leader>lt", function()
+			local get_clients = vim.lsp.get_clients or vim.lsp.get_active_clients
+			local clients = get_clients({ name = "basedpyright" })
+			if #clients == 0 then
+				clients = get_clients({ name = "pyright" })
+			end
+
+			if #clients == 0 then
+				vim.notify("Pyright / Basedpyright LSP is not active", vim.log.levels.WARN)
+				return
+			end
+
+			for _, client in ipairs(clients) do
+				local is_basedpyright = client.name == "basedpyright"
+				local section = is_basedpyright and "basedpyright" or "python"
+
+				client.config.settings = client.config.settings or {}
+				client.config.settings[section] = client.config.settings[section] or {}
+				client.config.settings[section].analysis = client.config.settings[section].analysis or {}
+
+				local current_mode = client.config.settings[section].analysis.typeCheckingMode or "off"
+				local new_mode = (current_mode == "off") and "recommended" or "off"
+
+				client.config.settings[section].analysis.typeCheckingMode = new_mode
+
+				client.notify("workspace/didChangeConfiguration", {
+					settings = client.config.settings,
+				})
+
+				vim.notify("Python type checking: " .. new_mode, vim.log.levels.INFO)
+			end
+		end, { desc = "Toggle Python type checking" })
+
 		-- NOTE: Setup servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		-- blink cmp
@@ -260,14 +294,17 @@ return {
 
 		-- basedpyright
 		vim.lsp.config("basedpyright", {
+			handlers = {
+				["$/progress"] = function() end,
+			},
 			settings = {
 				basedpyright = {
 					analysis = {
-						typeCheckingMode = "recommended", -- or "strict"
+						typeCheckingMode = "off",
 						autoImportCompletions = true,
 						autoSearchPaths = true,
 						useLibraryCodeForTypes = true,
-						diagnosticMode = "workspace",
+						diagnosticMode = "openFilesOnly",
 					},
 				},
 			},

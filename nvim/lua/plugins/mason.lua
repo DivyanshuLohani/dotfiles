@@ -50,6 +50,7 @@ return {
 				"pylint",
 				"clang-format",
 				"denols",
+				"codelldb",
 			},
 		})
 	end,
