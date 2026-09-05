@@ -121,8 +121,8 @@ return {
 					return vim.bo.filetype == "markdown"
 				end,
 				doc = {
-					float = false, -- show image on cursor hover
-					inline = false, -- show image inline
+					float = true, -- show image on cursor hover
+					inline = true, -- show image inline
 					max_width = 50,
 					max_height = 30,
 					wo = {

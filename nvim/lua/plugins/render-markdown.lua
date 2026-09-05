@@ -5,44 +5,42 @@ return {
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
 
-        local mode = {
-            'mode',
-            fmt = function(str)
-                return '' .. str
-            end,
-        }
+		local mode = {
+			"mode",
+			fmt = function(str)
+				return "" .. str
+			end,
+		}
 
-        local diff = {
-            'diff',
-            colored = true,
-            symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
-            -- cond = hide_in_width,
-        }
+		local diff = {
+			"diff",
+			colored = true,
+			symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
+			-- cond = hide_in_width,
+		}
 
-        local filename = {
-            'filename',
-            file_status = true,
-            path = 0,
-        }
+		local filename = {
+			"filename",
+			file_status = true,
+			path = 0,
+		}
 
-        local branch = {'branch', icon = {'', color={fg='#A6D4DE'}}, '|'}
-
+		local branch = { "branch", icon = { "", color = { fg = "#A6D4DE" } }, "|" }
 
 		lualine.setup({
-            icons_enabled = true,
+			icons_enabled = true,
 			options = {
 				theme = my_lualine_theme,
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "|", right = "" },
 			},
 			sections = {
-                lualine_a = { mode },
-                lualine_b = { branch },
-                lualine_c = { diff, filename },
+				lualine_a = { mode },
+				lualine_b = { branch },
+				lualine_c = { diff, filename },
 				lualine_x = {
 					{
-                        -- require("noice").api.statusline.mode.get,
-                        -- cond = require("noice").api.statusline.mode.has,
+						-- require("noice").api.statusline.mode.get,
 						lazy_status.updates,
 						cond = lazy_status.has_updates,
 						color = { fg = "#ff9e64" },

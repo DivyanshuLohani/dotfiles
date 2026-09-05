@@ -290,12 +290,12 @@ return {
 					comments = { "italic" },
 					conditionals = { "italic" },
 					loops = { "italic" },
-					functions = {},
+					functions = { "italic" },
 					keywords = { "italic" },
 					strings = {},
 					variables = {},
 					numbers = {},
-					booleans = {},
+					booleans = { "italic" },
 					properties = {},
 					types = { "italic" },
 					operators = {},
@@ -313,9 +313,6 @@ return {
 						-- For fully transparent
 						-- Normal = { bg = "none" },
 						NormalFloat = { bg = "none" },
-
-						["@keyword.function"] = { style = { "italic" } },
-						["@keyword.type"] = { style = { "italic" } },
 					}
 				end,
 				integrations = {
@@ -334,7 +331,7 @@ return {
 					mini = true,
 					dap = true,
 					dap_ui = true,
-					-- terminal = false,
+					terminal = true,
 				},
 			})
 
