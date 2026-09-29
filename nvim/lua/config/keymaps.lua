@@ -19,6 +19,7 @@ keymap("n", "<C-a>", "ggVG", "Select all")
 
 -- Copy to clipboard
 keymap("v", "<C-c>", '"+y', "Copy to clipboard")
+keymap("v", "y", '"+y', "Copy to clipboard")
 
 -- Format
 keymap("n", "<leader>f", function()

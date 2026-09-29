@@ -34,9 +34,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH=$PATH:$HOME/platform-tools
 alias agv='antigravity'
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/lib/jvm/java-26-openjdk/bin:$PATH
 export PATH="/home/divya/android/sdk/cmdline-tools/bin":$PATH
 export ANDROID_HOME=/home/divya/Android/Sdk/
-export PATH=/home/divya/.nvm/versions/node/v24.14.1/bin:/home/divya/android/sdk/cmdline-tools/bin:/home/divya/.local/bin:/home/divya/.bun/bin:/home/divya/flutter/bin:/home/divya/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/divya/platform-tools:/home/divya/.jiotv_go/bin:/home/divya/.jiotv_go/bin
+export PATH=/home/divya/.nvm/versions/node/v24.14.1/bin:/home/divya/android/sdk/cmdline-tools/bin:/home/divya/.local/bin:/home/divya/.bun/bin:/home/divya/flutter/bin:/home/divya/flutter/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/divya/platform-tools:/home/divya/.jiotv_go/bin:/home/divya/.jiotv_go/bin:$PATH
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 # For TMUX
