@@ -338,4 +338,21 @@ return {
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	{
+		"oskarnurm/koda.nvim",
+		lazy = false,
+		priority = 1000, -- Load this before other plugins start
+		config = function()
+			require("koda").setup({
+				-- transparent = true, -- Matches the transparent style of your other themes
+				theme = {
+					dark = "moss", -- "moss" or "dark"
+					light = "glade", -- "glade" or "light"
+				},
+			})
+
+			-- Uncomment this line to set it as your active theme:
+			-- vim.cmd("colorscheme koda")
+		end,
+	},
 }
